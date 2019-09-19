@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 
 (async () => {
   async function sleep (time) {
@@ -10,10 +11,11 @@ const puppeteer = require('puppeteer');
   }
 
   // Put your links here!
-  const links = [
-    'https://www.1point3acres.com/bbs/interview/twitter-software-engineer-436994.html',
-    'https://www.1point3acres.com/bbs/thread-551409-1-1.html'
-  ]
+  console.log('Reading links...')
+  const linksString = await fs.readFileSync('./links.txt', 'utf8')
+  console.log(`Walking through:\n${linksString}`)
+  const links = linksString.split('\r\n').filter(link => link !== '')
+
 
   // Launch browser
   const browser = await puppeteer.launch();
