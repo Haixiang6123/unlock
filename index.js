@@ -9,6 +9,7 @@ const puppeteer = require('puppeteer');
     return Math.random() * (max - min) + min;
   }
 
+  // Put your links here!
   const links = [
     'https://www.1point3acres.com/bbs/interview/twitter-software-engineer-436994.html',
     'https://www.1point3acres.com/bbs/thread-551409-1-1.html'
