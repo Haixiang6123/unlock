@@ -37,7 +37,7 @@ const puppeteer = require('puppeteer');
 
       await page.goto(links[i]);
 
-      await page.screenshot({path: `unlock-${i}.png`, fullPage: true});
+      await page.screenshot({path: `./dist/unlock-${i}.png`, fullPage: true});
     }
 
     await browser.close();
