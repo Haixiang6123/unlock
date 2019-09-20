@@ -36,12 +36,12 @@ const fs = require('fs');
         continue
       }
 
-      console.log(`Fetching #${i} link: ${links[i]}...`)
       // Random access 4ms ~ 10ms
       const sleeping = getRandomArbitrary(4, 10)
       console.log(`Sleeping ${sleeping * 1000} ms`)
       await sleep(sleeping * 1000)
 
+      console.log(`Fetching #${i} link: ${links[i]}...`)
       await page.goto(links[i]);
 
       await page.screenshot({path: `./dist/unlock-${i}.png`, fullPage: true});
