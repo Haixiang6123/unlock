@@ -24,14 +24,18 @@ const fs = require('fs');
   // Set up account
   await page.goto('https://www.1point3acres.com/bbs/')
   await page.evaluate(() => {
-    document.querySelector('#ls_username').value = 'yan6123@qq.com';
-    document.querySelector('#ls_password').value = 'Qq680321!!';
+    document.querySelector('#ls_username').value = '一亩三分地用户名';
+    document.querySelector('#ls_password').value = '一亩三分地密码';
     document.querySelector('button[type="submit"]').click()
   })
 
   setTimeout(async () => {
     // Get screenshots
     for (let i = 0; i < links.length; i++) {
+      if (!links) {
+        continue
+      }
+
       console.log(`Fetching #${i} link: ${links[i]}...`)
       // Random access 4ms ~ 10ms
       const sleeping = getRandomArbitrary(4, 10)
